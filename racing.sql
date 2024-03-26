@@ -8,14 +8,29 @@
 
 -- OPTION 2
 -- Use this if you have not used qb-lapraces and dont have races to convert
+-- CREATE TABLE IF NOT EXISTS `race_tracks` (
+--   `citizenid` int(11) NOT NULL AUTO_INCREMENT,
+--   `name` varchar(50) DEFAULT NULL,
+--   `checkpoints` text DEFAULT NULL,
+--   `records` text DEFAULT NULL,
+--   `creatorid` varchar(50) DEFAULT NULL,
+--   `creatorname` varchar(50) DEFAULT NULL,
+--   `distance` int(11) DEFAULT NULL,
+--   `raceid` varchar(50) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+-- rework
 CREATE TABLE IF NOT EXISTS `race_tracks` (
-  `citizenid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `citizenid` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+  `name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
   `checkpoints` text DEFAULT NULL,
   `records` text DEFAULT NULL,
   `creatorid` varchar(50) DEFAULT NULL,
   `creatorname` varchar(50) DEFAULT NULL,
   `distance` int(11) DEFAULT NULL,
   `raceid` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+         PRIMARY KEY (`citizenid`),  
+        UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
